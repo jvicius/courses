@@ -33,6 +33,16 @@ export class SessionService {
     return this.target.getItem(this.sessionitem);
   }
 
+  getToken() : string{
+    if(this.isAuthenticated()){
+      var t = JSON.parse(this.getSession());
+      return t.token;
+    }
+    else{
+      return '';
+    }
+  }
+
   isAuthenticated() {
     return this.target.getItem(this.sessionitem) ? true : false;
   }
