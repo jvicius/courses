@@ -1,0 +1,20 @@
+<form (submit)="signup()" [formGroup]="form">
+  <div>
+    <div>
+        <input type="text" placeholder="name" formControlName="name">
+    </div>
+    <div>
+        <input type="email" placeholder="email" formControlName="email">
+    </div>
+    <div>
+        <input type="password" placeholder="password" formControlName="password">
+    </div>
+    <div>
+        <input type="password" placeholder="cpassword" formControlName="cpassword">
+    </div>
+  </div>
+  <div>
+    <button [disabled]="!form.valid">signup</button>
+  </div>
+  <div>{{form.valid}}</div>
+</form>

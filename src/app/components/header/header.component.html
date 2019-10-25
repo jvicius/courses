@@ -1,0 +1,13 @@
+<nav>
+    <ul>
+        <li>
+            <a routerLink="/">Home</a>
+        </li>
+        <li *ngIf="isAuthenticated">
+            <a routerLink="/students">students</a>
+        </li>
+        <li *ngIf="isAuthenticated">
+            <a routerLink="/auth/logout">Logout</a>
+        </li>
+    </ul>
+</nav>

@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { JsonPipe } from '@angular/common';
+import { BehaviorSubject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -9,8 +9,11 @@ export class SessionService {
   private target = localStorage;
   private sessionitem = 'app-session';
   private useritem = 'userinfo';
+  public auth: BehaviorSubject<boolean>;
 
-  constructor() { }
+  constructor() {
+    this.auth = new BehaviorSubject(this.isAuthenticated());
+   }
 
   saveUserInfo(data)
   {
@@ -23,6 +26,7 @@ export class SessionService {
 
   saveSession(data) {
     this.target.setItem(this.sessionitem, JSON.stringify(data));
+    this.auth.next(true);
   }
 
   getSession() {
@@ -36,6 +40,9 @@ export class SessionService {
   removeSession() {
     this.target.removeItem(this.sessionitem);
     this.target.removeItem(this.useritem);
+    this.auth.next(false);
   }
+
+
 
 }

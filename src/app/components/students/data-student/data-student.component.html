@@ -1,0 +1,24 @@
+<form (submit)="save()" [formGroup]="form">
+<div>
+    <input type="text" formControlName="name" placeholder="Name">
+</div>
+<div>
+    <input type="text"  formControlName="username" placeholder="UserName">
+</div>
+<div>
+    <input type="email" formControlName="email" placeholder="Email">
+</div>
+<div>
+    <input type="text"  formControlName="phone" placeholder="Phone">
+</div>
+<div>
+    <input type="text" formControlName="website" placeholder="URL">
+</div>
+<div>
+    <button>Guardar</button>
+    <a routerLink="..">Cancelar</a>
+</div>
+<div>
+    {{form.valid}}
+</div>
+</form>
